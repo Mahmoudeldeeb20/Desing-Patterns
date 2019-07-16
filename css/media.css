@@ -1,0 +1,27 @@
+/* For Screen Width From : 992 Px To 1199 PX */
+
+@media (max-width: 1199px) and (min-width:992px) {}
+
+/* For Screen Width From : 768 Px To 992 PX */
+
+@media (max-width: 992px) and (min-width:769px) {}
+
+/* For Screen Width From : 577 Px To 768 PX */
+
+@media (max-width: 768px) and (min-width:577px) {}
+
+/* For Screen Width From : 100 Px To 576 PX */
+
+@media (max-width: 576px) and (min-width:100px) {}
+
+/* Microsoft EdgeV13&14 CSS styles go here */
+
+@supports (-ms-ime-align: auto) {}
+
+/* Microsoft EdgeV13 CSS styles go here */
+
+@supports (-ms-accelerator: true) {}
+
+/* IE10 & IE11 CSS styles go here */
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {}
