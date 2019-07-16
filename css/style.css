@@ -4,6 +4,7 @@ body {
         overflow-x: hidden;
 }
 
-a {
+a,
+button {
         text-decoration: none !important;
 }
