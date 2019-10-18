@@ -8,3 +8,30 @@ a,
 button {
         text-decoration: none !important;
 }
+
+img {
+        height: 400px;
+        margin: 4% auto;
+        border-radius: 5px;
+        border: 2px solid #FFC107;
+        box-shadow: 1px 2px 5px -2px #FFEB3B;
+}
+
+#counter {
+        display: inline-block;
+        background: #03A9F4;
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        color: #fff;
+        box-shadow: 1px 1px 4px -1px #00000075;
+}
+
+#counter .counterHeading {
+        line-height: 1.4;
+}
