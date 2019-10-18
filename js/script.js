@@ -1,4 +1,4 @@
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 5; i++) {
         let createContainer = document.createElement('div');
         document.body.appendChild(createContainer).setAttribute('class', 'catContainer');
         let createImg = document.createElement('img');
@@ -10,21 +10,12 @@ for (let i = 0; i < 2; i++) {
         selectContainer[i].insertBefore(createHeading, selectCat[i].nextSibling);
         let selectHeading = document.querySelectorAll('h1');
         let counter = 0;
-        if (i == 0) {
-                selectHeading[i].innerText = `This Is First Cat, You Clicked: ${counter}`;
-        }
-        else if (i == 1) {
-                selectHeading[i].innerText = `This Is Second Cat, You Clicked: ${counter}`;
-
-        }
+        selectHeading[i].innerText = `Pic Num ${i + 1}, You Clicked: ${counter}`;
         selectCat[i].addEventListener('click', function () {
                 counter++
-                if (i == 0) {
-                        selectHeading[i].innerText = `This Is First Cat, You Clicked: ${counter}`;
-                }
-                else if (i == 1) {
-                        selectHeading[i].innerText = `This Is Second Cat, You Clicked: ${counter}`;
-
-                }
+                this.parentElement.classList.add('active');
+                this.parentElement.nextElementSibling.classList.remove('active');
+                $(this).parent().siblings().removeClass('active')
+                selectHeading[i].innerText = `Pic Num ${i + 1}, You Clicked: ${counter}`;
         })
 }

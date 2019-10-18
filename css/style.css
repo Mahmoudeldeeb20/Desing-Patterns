@@ -1,7 +1,7 @@
 body {
         padding: 0;
         margin: 0;
-        overflow-x: hidden;
+        overflow: hidden;
 }
 
 a,
@@ -10,14 +10,15 @@ button {
 }
 
 .catContainer {
-        display: inline-block;
-        height: 500px;
-        width: 45%;
-        margin: 2%;
-        border-radius: 5px;
-        border: 2px solid #FFC107;
-        box-shadow: 1px 2px 5px -2px #FFEB3B;
+        display: block;
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid rgb(255, 193, 7);
+        margin: 1%;
         cursor: pointer;
+        transition: all ease-out 0.3s;
 }
 
 .catContainer img {
@@ -27,4 +28,28 @@ button {
 
 .catContainer h1 {
         color: rgb(255, 193, 7);
+        display: none;
+}
+
+.catContainer:hover {
+        border-color: #2196F3;
+        border-radius: 30%;
+}
+
+.catContainer.active {
+        position: absolute;
+        width: 600px;
+        height: 450px;
+        left: calc((100% - 600px) /2);
+        top: calc((100% - 550px) /2);
+        border-radius: 2px;
+        border: 2px solid rgb(76, 175, 80);
+        overflow: visible;
+}
+
+.catContainer.active img {}
+
+.catContainer.active h1 {
+        display: block;
+        color: #4CAF50;
 }
