@@ -9,8 +9,9 @@ button {
         text-decoration: none !important;
 }
 
-img {
-        height: 400px;
+#catCounter {
+        display: block;
+        height: 500px;
         margin: 4% auto;
         border-radius: 5px;
         border: 2px solid #FFC107;
@@ -33,5 +34,6 @@ img {
 }
 
 #counter .counterHeading {
-        line-height: 1.4;
+        line-height: 2;
+        margin: 0;
 }
