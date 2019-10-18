@@ -1,12 +1,30 @@
-let cat = document.getElementById('catCounter')
-let createDiv = document.createElement('div')
-let createHeading = document.createElement('h1')
-document.body.appendChild(createDiv).setAttribute('id', 'counter');
-let divCounter = document.getElementById('counter')
-divCounter.appendChild(createHeading).setAttribute('class', 'counterHeading')
-let counterHeading = document.getElementsByClassName('counterHeading')
-let catCounter = 0;
-cat.addEventListener('click', function () {
-        catCounter++
-        counterHeading[0].innerHTML = catCounter;
-})
+for (let i = 0; i < 2; i++) {
+        let createContainer = document.createElement('div');
+        document.body.appendChild(createContainer).setAttribute('class', 'catContainer');
+        let createImg = document.createElement('img');
+        let selectContainer = document.querySelectorAll('.catContainer');
+        let x = i + 1;
+        selectContainer[i].appendChild(createImg).setAttribute('src', `img/img_${x}.jpg`);
+        let createHeading = document.createElement('h1');
+        let selectCat = document.querySelectorAll('img');
+        selectContainer[i].insertBefore(createHeading, selectCat[i].nextSibling);
+        let selectHeading = document.querySelectorAll('h1');
+        let counter = 0;
+        if (i == 0) {
+                selectHeading[i].innerText = `This Is First Cat, You Clicked: ${counter}`;
+        }
+        else if (i == 1) {
+                selectHeading[i].innerText = `This Is Second Cat, You Clicked: ${counter}`;
+
+        }
+        selectCat[i].addEventListener('click', function () {
+                counter++
+                if (i == 0) {
+                        selectHeading[i].innerText = `This Is First Cat, You Clicked: ${counter}`;
+                }
+                else if (i == 1) {
+                        selectHeading[i].innerText = `This Is Second Cat, You Clicked: ${counter}`;
+
+                }
+        })
+}
