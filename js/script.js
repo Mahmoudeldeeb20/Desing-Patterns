@@ -14,7 +14,6 @@ for (let i = 0; i < 5; i++) {
         selectCat[i].addEventListener('click', function () {
                 counter++
                 this.parentElement.classList.add('active');
-                this.parentElement.nextElementSibling.classList.remove('active');
                 $(this).parent().siblings().removeClass('active')
                 selectHeading[i].innerText = `Pic Num ${i + 1}, You Clicked: ${counter}`;
         })
