@@ -5,31 +5,26 @@ let animalsModel = {
                 {
                         animalName: 'Rabbit',
                         animalSrc: 'img/img_1.jpg',
-                        animalAtt: 'Rabbit Picture',
                         animalClickCounter: 0
                 },
                 {
                         animalName: 'Fox',
                         animalSrc: 'img/img_2.jpg',
-                        animalAtt: 'Fox Picture',
                         animalClickCounter: 0
                 },
                 {
                         animalName: 'Lion',
                         animalSrc: 'img/img_3.jpg',
-                        animalAtt: 'Lion Picture',
                         animalClickCounter: 0
                 },
                 {
                         animalName: 'Panda',
                         animalSrc: 'img/img_4.jpg',
-                        animalAtt: 'Panda Picture',
                         animalClickCounter: 0
                 },
                 {
                         animalName: 'Deer',
                         animalSrc: 'img/img_5.jpg',
-                        animalAtt: 'Deer Picture',
                         animalClickCounter: 0
                 },
         ]
@@ -39,6 +34,7 @@ let viewModelLink = {
                 animalsModel.currentAnimal = animalsModel.animals[0];
                 viewAnimalContent.init();
                 viewAnimalList.init();
+                adminControl.init()
         },
         getCurrentAnimal: function () {
                 return animalsModel.currentAnimal
@@ -68,9 +64,11 @@ let viewAnimalContent = {
         },
         render: function () {
                 var currentAnimal = viewModelLink.getCurrentAnimal();
-                this.animalDescription.textContent = currentAnimal.animalName;
-                this.animalCounter.textContent = currentAnimal.animalClickCounter;
+                this.animalDescription.textContent = `This Is ${currentAnimal.animalName} Picture`;
+                this.animalCounter.textContent = `Num of clicks on this beautiful Pic is: ${currentAnimal.animalClickCounter}`;
                 this.animalPicture.src = currentAnimal.animalSrc;
+                this.animalPicture.setAttribute('alt', `${currentAnimal.animalName} Picture`);
+                this.animalPicture.setAttribute('title', `${currentAnimal.animalName} Picture`);
                 this.bodyContent.style.backgroundImage = `url('${currentAnimal.animalSrc}')`;
         }
 }
@@ -95,6 +93,46 @@ let viewAnimalList = {
                         })(animal));
                         this.animalsContent.appendChild(listItem);
                 }
+        }
+}
+let adminControl = {
+        init: function () {
+                this.adminStart = document.getElementById('adminStart');
+                this.adminPanel = document.getElementById('adminPanel');
+                this.animalName = document.getElementById('animalName');
+                this.animalSrc = document.getElementById('animalSrc');
+                this.addAnimal = document.getElementById('addAnimal');
+                this.cancelAnimal = document.getElementById('cancelAnimal');
+                this.render()
+        },
+        render: function () {
+                this.adminStart.innerText = 'Admin'
+                this.addAnimal.innerText = 'Add'
+                this.cancelAnimal.innerText = 'Cancel'
+                this.adminStart.addEventListener('click', function () {
+                        var _adminPanel = document.getElementById('adminPanel');
+                        var _adminStart = document.getElementById('adminStart');
+                        _adminPanel.classList.add('start');
+                        _adminStart.classList.add('start');
+                })
+                this.adminPanel.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        if (animalsModel.animals.length < 49) {
+                                animalsModel.animals.push({
+                                        animalName: this.animalName.value,
+                                        animalSrc: this.animalSrc.value,
+                                        animalClickCounter: 0
+                                })
+                        }
+                        viewAnimalList.init()
+                })
+                this.cancelAnimal.addEventListener('click', function () {
+                        var _adminPanel = document.getElementById('adminPanel');
+                        var _adminStart = document.getElementById('adminStart');
+                        _adminPanel.classList.remove('start');
+                        _adminStart.classList.remove('start');
+                })
+
         }
 }
 
